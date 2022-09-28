@@ -1,0 +1,19 @@
+PRAGMA foreign_keys = ON;
+
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS locations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name TEXT UNIQUE NOT NULL,
+    avg_rating NUMERIC DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS posts (
+     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+     author TEXT DEFAULT 'anonymous',
+     location_id INTEGER REFERENCES locations(id),
+     rating INTEGER DEFAULT 0,
+     message TEXT DEFAULT '',
+     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+COMMIT;
