@@ -1,9 +1,8 @@
 const express = require("express");
+const locations = require("./routes/location-route");
 
 const server = express();
 
-server.get("/", (req, res) => {
-  res.send("hello world");
-});
+server.get("/", locations.get);
 
 module.exports = server;
