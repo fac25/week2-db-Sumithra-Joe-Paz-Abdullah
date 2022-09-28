@@ -1,4 +1,4 @@
-module.exports = { Layout, Locations };
+module.exports = { Layout, Locations, DisplayRecentPosts };
 
 function Layout({ title, content }) {
   return /*html*/ `
@@ -20,24 +20,28 @@ function Layout({ title, content }) {
     `;
 }
 
-function Locations ({data}){
-    // grab the column name
-    //const keys = Object.keys(data[0]);
-    return /*html*/ `
+function Locations({ data }) {
+  // grab the column name
+  //const keys = Object.keys(data[0]);
+  return /*html*/ `
     <section>
         <div class="container">
         ${data.map(LocationItem).join("")}
         </div>
     </section>
-    `
+    `;
 }
 
-function LocationItem(entry){
-    return /*html*/ `
+function LocationItem(entry) {
+  return /*html*/ `
   
       ${Object.values(entry)
         .map((val) => `<div>${val}</div>`)
         .join("")}
    
   `;
+}
+
+function DisplayRecentPosts(posts) {
+  return posts;
 }

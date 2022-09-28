@@ -1,6 +1,6 @@
 const { listLocations } = require("../model/location");
 const { getRecentPosts } = require("../model/posts");
-const { Layout, Location, DisplayRecentPosts } = require("../templates.js");
+const { Layout, Locations, DisplayRecentPosts } = require("../templates.js");
 
 function get(request, response) {
   const locations = listLocations();
@@ -16,7 +16,7 @@ function get(request, response) {
   } else {
     title = "London Attractions";
     content = /*html */ `
-    <div>${Location({ caption: title, data: locations })}</div>
+    <div>${Locations({ caption: title, data: locations })}</div>
     <div>${DisplayRecentPosts(posts)}</div>
     
     `;
