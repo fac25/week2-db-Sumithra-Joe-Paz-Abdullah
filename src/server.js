@@ -10,7 +10,7 @@ server.get("/location/:id", location.get);
 server.post("/location/:id", express.urlencoded({ extended: false }), add.post);
 
 // // serve CSS and imgs to every route
-// const staticHandler = express.static("public");
-// server.use(staticHandler);
+const staticHandler = express.static("public");
+server.use(staticHandler);
 
 module.exports = server;

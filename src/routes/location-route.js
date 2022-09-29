@@ -16,7 +16,7 @@ function get(request, response) {
   } else {
     title = "London Attractions";
     content = /*html */ `
-    <div>${Locations(title, locations)}</div>
+    <div class="locations-container">${Locations(title, locations)}</div>
     <div>${DisplayRecentPosts(posts)}</div>
     
     `;

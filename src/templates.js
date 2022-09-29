@@ -7,8 +7,7 @@ function Layout({ title, content }) {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>${title}| ATTRACTION REVIEWS</title>
-            <!--link rel="stylesheet" type="text/css" href="style.css"/-->
-            <style>${styles}</style>
+            <link rel="stylesheet" type="text/css" href="/style.css">
         </head>
     <body>
         <main class="container">
@@ -35,7 +34,9 @@ function PostItem(entry) {
   return /*html*/ ` 
   
       ${Object.values(entry)
-        .map((val) => `<div>${val}</div>`)
+        .map(
+          (val) => `<div>${typeof val === "string" ? sanitize(val) : val}</div>`
+        )
         .join("")}`;
 }
 function Locations(title, locations) {
@@ -49,17 +50,24 @@ function Locations(title, locations) {
   ${Object.values(locations)
     .map(
       (val) => `
+  <div class="attraction-container">
   <a href="location/${val.id}">
   <div>
   <h3>${val.name}</h3>
   <span>${val.avg_rating}</span>
   </div>
   </a>
+  </div>
   `
     )
     .join("")}
 
 `;
+}
+
+function sanitize(text) {
+  console.log(typeof text);
+  return text.replaceAll("<", "&lt;");
 }
 
 function LocationItem(entry) {
@@ -86,7 +94,7 @@ function DisplayRecentPosts(posts) {
   ${Object.values(posts)
     .map(
       (val) => `
-    <div class="card" style="border: solid; margin-top:3rem">
+    <div class="card">
       <div class="card_heading">
         <h3>${val.name}</h3>
         <span>${val.rating}</span>
@@ -108,16 +116,16 @@ function AddReviewForm(postsByLocation, locationId) {
     <form method="POST">
       <p>
         <label for="author">Name</label>
-        <input name="author" id="author">
-      </p>
-      <p>
-        <label for="message">Message</label>
-        <input name="message" id="message">
+        <input name="author" id="author" placeholder="Joe...">
       </p>
       <p>
       <label for="rating">Rating</label>
-      <input name="rating" id="rating">
+      <input type="number" min="1" max="5" name="rating" id="rating" placeholder="3.5">
     </p>
+    <p>
+        <label for="message">Message</label>
+        <input name="message" class="message" id="message" maxlength="300" placeholder="Amazing!..."> 
+      </p>
     <input type=hidden id="location_id" name="location_id" value='${locationId}'>
   
       <button>Review</button>
@@ -126,62 +134,6 @@ function AddReviewForm(postsByLocation, locationId) {
     <div>${Posts({ data: postsByLocation })}</div>
     `;
 }
-
-const styles = /* css */ `
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body,
-html {
-  font-family: monospace, serif;
-  font-size: 1rem;
-  text-align: center;
-  margin-top: 10px;
-  color: #4d4d4d;
-  background-color: #fef5f5;
-}
-
-.container {
-  width: 75%;
-  height: 100vh;
-  margin: auto;
-  padding-top: 10px;
-}
-h1,
-h2 {
-  padding-top: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  max-width: 500px;
-  padding: 30px 0;
-}
-
-input {
-  width: 400px;
-  padding: 12px 50px;
-  border-radius: 5px;
-  justify-content: center;
-}
-
-button {
-  margin-top: 20px;
-  padding: 15px 20px;
-  background-color: #4d4d4d;
-  color: white;
-  border-radius: 5px;
-}
-
-
-;`;
 
 module.exports = {
   Layout,
