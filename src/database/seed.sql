@@ -30,10 +30,7 @@ INSERT INTO posts VALUES
 (2, 'Joe', 2, 3, 'Overrated', '2022-09-15 11:10:07'),
 (3, 'Abdullah', 1, 4, 'Amazing place, I guess','2022-09-14 23:59:59' ),
 (4, '', 3, 5, '', '2022-05-13 13:00:59'),
-(5, 'Paz', 8, 5, 'Nice staff', '2021-04-10 12:21:01'),
-(6, 'Abdullah', 1, 4, 'Amazing place, I guess','2022-09-14 23:59:59' ),
-(7, '', 3, 5, '', '2022-05-13 13:00:59'),
-(8, 'Paz', 8, 5, 'Nice staff', '2021-04-10 12:21:01')
+(5, 'Paz', 8, 5, 'Nice staff', '2021-04-10 12:21:01')
 
 ON CONFLICT(id) DO NOTHING;
 
