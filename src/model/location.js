@@ -17,7 +17,7 @@ const current_location = db.prepare(
   /*sql */
   `SELECT name, avg_rating
  FROM locations
- WHERE id = $id`
+ WHERE id = ?`
 );
 
 function currentLocation(id) {
