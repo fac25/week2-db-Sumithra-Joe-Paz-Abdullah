@@ -7,9 +7,11 @@ function Layout({ title, content }) {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>${title}| ATTRACTION REVIEWS</title>
+            <!--link rel="stylesheet" type="text/css" href="style.css"/-->
+            <style>${styles}</style>
         </head>
     <body>
-        <main>
+        <main class="container">
             <h1>${title}</h1>
             ${content}
         </main>
@@ -23,7 +25,7 @@ function Locations({ data }) {
   //const keys = Object.keys(data[0]);
   return /*html*/ `
     <section>
-        <div class="container">
+        <div class="reviews">
         ${data.map(LocationItem).join("")}
         </div>
     </section>
@@ -67,5 +69,61 @@ function AddReviewForm(postsByLocation, locationId) {
     <div>${Locations({ data: postsByLocation })}</div>
     `;
 }
+
+const styles = /* css */ `
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  font-family: monospace, serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 10px;
+  color: #4d4d4d;
+  background-color: #fef5f5;
+}
+
+.container {
+  width: 75%;
+  height: 100vh;
+  margin: auto;
+  padding-top: 10px;
+}
+h1,
+h2 {
+  padding-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  padding: 30px 0;
+}
+
+input {
+  width: 400px;
+  padding: 12px 50px;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+button {
+  margin-top: 20px;
+  padding: 15px 20px;
+  background-color: #4d4d4d;
+  color: white;
+  border-radius: 5px;
+}
+
+
+;`;
 
 module.exports = { Layout, Locations, DisplayRecentPosts, AddReviewForm };
