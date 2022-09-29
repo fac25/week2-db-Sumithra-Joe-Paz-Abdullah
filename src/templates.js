@@ -60,7 +60,6 @@ function Locations(title, locations) {
     .join("")}
 
 `;
-
 }
 
 function LocationItem(entry) {
@@ -128,15 +127,6 @@ function AddReviewForm(postsByLocation, locationId) {
     `;
 }
 
-<<<<<<< HEAD
-module.exports = {
-  Layout,
-  Locations,
-  DisplayRecentPosts,
-  AddReviewForm,
-  Posts,
-};
-=======
 const styles = /* css */ `
 * {
   box-sizing: border-box;
@@ -193,5 +183,10 @@ button {
 
 ;`;
 
-module.exports = { Layout, Locations, DisplayRecentPosts, AddReviewForm };
->>>>>>> 20d1230f9898571a29a4981de9cc0b1aa8bac7a0
+module.exports = {
+  Layout,
+  Locations,
+  DisplayRecentPosts,
+  AddReviewForm,
+  Posts,
+};
