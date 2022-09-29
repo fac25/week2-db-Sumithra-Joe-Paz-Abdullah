@@ -17,7 +17,25 @@ function Layout({ title, content }) {
     </html>
     `;
 }
+function Posts({ data }) {
+  // grab the column name
+  //const keys = Object.keys(data[0]);
+  return /*html*/ ` 
+    <section>
+        <div class="table_display">
+        ${data.map(PostItem).join("")}
+        </div>
+    </section>`;
+}
 
+function PostItem(entry) {
+  // console.log(entry);
+  return /*html*/ ` 
+  
+      ${Object.values(entry)
+        .map((val) => `<div>${val}</div>`)
+        .join("")}`;
+}
 function Locations(title, locations) {
   console.log(title);
   console.log(locations);
@@ -102,8 +120,14 @@ function AddReviewForm(postsByLocation, locationId) {
       <button>Review</button>
     </form>
 
-    <div>${Locations({ data: postsByLocation })}</div>
+    <div>${Posts({ data: postsByLocation })}</div>
     `;
 }
 
-module.exports = { Layout, Locations, DisplayRecentPosts, AddReviewForm };
+module.exports = {
+  Layout,
+  Locations,
+  DisplayRecentPosts,
+  AddReviewForm,
+  Posts,
+};
