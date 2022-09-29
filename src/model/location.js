@@ -11,8 +11,7 @@ function listLocations() {
   return select_locations.all();
 }
 
-// #7
-
+// Return location name and average ratings from location table
 const current_location = db.prepare(
   /*sql */
   `SELECT name, avg_rating
