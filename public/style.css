@@ -40,6 +40,8 @@ form {
 }
 
 form p {
+  display :flex;
+  flex-direction: row;
   width: 90%;
   margin-right: auto;
   margin-left: auto;
@@ -48,6 +50,7 @@ form p {
 label {
   display: block;
   padding: 1rem 0;
+  width : 100px;
 }
 
 input {
@@ -55,6 +58,7 @@ input {
   padding: 12px 50px;
   border-radius: 5px;
   justify-content: center;
+  margin: 5px 0;
 }
 
 /* input[type="number"] {
@@ -66,7 +70,7 @@ input::placeholder {
 }
 
 .message {
-  min-height: 200px;
+  min-height: 100px;
 }
 
 button {
