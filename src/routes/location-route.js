@@ -16,12 +16,12 @@ function get(request, response) {
   } else {
     title = "London Attractions";
     content = /*html */ `
-    <div>${Locations({ caption: title, data: locations })}</div>
+    <div>${Locations(title, locations)}</div>
     <div>${DisplayRecentPosts(posts)}</div>
     
     `;
   }
-
+  // ${Locations({ caption: title, data: locations })}
   const body = Layout({ title, content });
   response.send(body);
 }

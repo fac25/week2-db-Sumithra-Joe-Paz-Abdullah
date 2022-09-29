@@ -31,8 +31,15 @@ function getRatings(locationId) {
 // QUERY TO LIST 10 OF THE MOST RECENT MESSAGES
 
 const most_recent = db.prepare(/*sql*/ ` 
-SELECT message 
-FROM posts ORDER BY created_at DESC LIMIT 10
+SELECT 
+posts.message,  
+posts.author, 
+posts.rating,
+locations.name,
+locations.id
+FROM posts 
+JOIN locations ON posts.location_id = locations.id
+ORDER BY created_at DESC LIMIT 10
 `);
 
 function getRecentPosts() {
