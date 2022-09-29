@@ -26,10 +26,14 @@ There is three tests:
 - [x] Test #3 Form inserts data into Db
 
 First Feed the test db:
+```
 npm run seedTest
+```
 
 To run the tests:
+```
 npm run test
+```
 
 ## Users Stories
 
