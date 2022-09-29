@@ -4,9 +4,9 @@
   "description": "project-2",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "DB_FILE=db.sqlite nodemon src/index.js",
-    "seed": "DB_FILE=db.sqlite node src/database/seed.js"
+    "start": "node ./src/index.js",
+    "dev": "DB_FILE=db.sqlite nodemon ./src/index.js",
+    "seed": "DB_FILE=db.sqlite node ./src/database/seed.js"
   },
   "repository": {
     "type": "git",
