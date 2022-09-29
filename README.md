@@ -18,6 +18,19 @@ Make sure you have Git and Node (v18) installed.
 
 This uses the `nodemon` library to auto-restart the server when you save changes.
 
+## Test
+
+There is three tests:
+- [x] Test #1 Check List Locations: query returns length of rows, name, id
+- [x] Test #2 List Recent Posts getRecentPosts
+- [x] Test #3 Form inserts data into Db
+
+First Feed the test db:
+npm run seedTest
+
+To run the tests:
+npm run test
+
 ## Users Stories
 
 - [x] As a user, I want to: submit information to your site for anyone to see
@@ -30,7 +43,7 @@ This uses the `nodemon` library to auto-restart the server when you save changes
 - [x] Semantic form elements with correctly associated labels
 - [x] A SQLite database
 - [x] A schema describing your database in your README
-- [ ] Tests for server routes and database access
+- [x] Tests for server routes and database access
 - [x] Not process user input as SQL commands
 - [x] Hidden environment variables (i.e. not on GitHub)
 
