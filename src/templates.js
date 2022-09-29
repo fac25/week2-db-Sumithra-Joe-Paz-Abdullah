@@ -18,30 +18,68 @@ function Layout({ title, content }) {
     `;
 }
 
-function Locations({ data }) {
+function Locations(title, locations) {
+  console.log(title);
+  console.log(locations);
   // grab the column name
   //const keys = Object.keys(data[0]);
+  // ${data.map(LocationItem).join("")}
   return /*html*/ `
-    <section>
-        <div class="container">
-        ${data.map(LocationItem).join("")}
-        </div>
-    </section>
-    `;
+  ${Object.values(locations)
+    .map(
+      (val) => `
+  <a href="location/${val.id}">
+  <div>
+  <h3>${val.name}</h3>
+  <span>${val.avg_rating}</span>
+  </div>
+  </a>
+  `
+    )
+    .join("")}
+
+`;
 }
 
 function LocationItem(entry) {
   return /*html*/ `
   
       ${Object.values(entry)
-        .map((val) => `<div>${val}</div>`)
+        .map(
+          (val) => `
+       <a href="#">
+          <div>
+          ${val}
+          </div>
+        </a>
+        `
+        )
         .join("")}
    
   `;
 }
 
 function DisplayRecentPosts(posts) {
-  return posts;
+  return /*html*/ `
+  
+  ${Object.values(posts)
+    .map(
+      (val) => `
+    <div class="card" style="border: solid; margin-top:3rem">
+      <div class="card_heading">
+        <h3>${val.name}</h3>
+        <span>${val.rating}</span>
+      </div>
+      <div class="card_body">
+        <p>${val.message}</p>
+        <span>${val.author}</span>
+      </div>
+    </div>
+    `
+    )
+    .join("")}
+
+`;
 }
 
 function AddReviewForm(postsByLocation, locationId) {
