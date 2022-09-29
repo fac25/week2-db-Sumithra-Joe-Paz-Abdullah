@@ -28,7 +28,6 @@ const get_ratings = db.prepare(/*sql*/ `
 `);
 
 function getRatings(locationId) {
-  console.log(locationId);
   return get_ratings.all(locationId);
 }
 

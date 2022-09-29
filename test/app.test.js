@@ -49,13 +49,7 @@ test("The form inserts data into Db", async () => {
     headers: { "content-type": "application/x-www-form-urlencoded" },
   });
   app.close();
-  // assert.equal(post_response.status, 200);
-  // assert.equal(post_response.headers.location, "/location/1");
-
   const body = await post_response.text();
-  // console.log("-------------------");
-  // console.log(body);
-  // console.log("-------------------");
 
   assert.match(
     body,

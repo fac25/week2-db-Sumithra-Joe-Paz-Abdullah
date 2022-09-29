@@ -21,7 +21,6 @@ function get(request, response) {
     
     `;
   }
-  // ${Locations({ caption: title, data: locations })}
   const body = Layout({ title, content });
   response.send(body);
 }

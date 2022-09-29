@@ -20,7 +20,6 @@ function Layout({ title, content }) {
 }
 function Posts({ data }) {
   // grab the column name
-  //const keys = Object.keys(data[0]);
   return /*html*/ ` 
     <section>
         <div class="table_display">
@@ -30,7 +29,6 @@ function Posts({ data }) {
 }
 
 function PostItem(entry) {
-  // console.log(entry);
   return /*html*/ ` 
   
       ${Object.values(entry)
@@ -40,11 +38,7 @@ function PostItem(entry) {
         .join("")}`;
 }
 function Locations(title, locations) {
-  console.log(title);
-  console.log(locations);
   // grab the column name
-  //const keys = Object.keys(data[0]);
-  // ${data.map(LocationItem).join("")}
   return /*html*/ `
 
   ${Object.values(locations)
@@ -66,7 +60,6 @@ function Locations(title, locations) {
 }
 
 function sanitize(text) {
-  console.log(typeof text);
   return text.replaceAll("<", "&lt;");
 }
 
