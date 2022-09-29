@@ -11,9 +11,13 @@ const selectPosts = () => select_posts.all();
 
 const insert_post = db.prepare(/*sql*/ `
 INSERT INTO posts 
-(author, rating, message) VALUES
-($author, $rating, $message)
+(author, rating, message, location_id) VALUES
+($author, $rating, $message, $location_id)
 `);
+
+function insertPost(post) {
+  return insert_post.run(post);
+}
 
 // #6 Update the avg_rating in locations
 
@@ -50,4 +54,10 @@ function getLocationPosts(location_id) {
   return posts_location.all(location_id);
 }
 
-module.exports = { getRecentPosts, getLocationPosts, getRatings, selectPosts };
+module.exports = {
+  getRecentPosts,
+  getLocationPosts,
+  getRatings,
+  selectPosts,
+  insertPost,
+};
