@@ -9,7 +9,7 @@
     "seed": "DB_FILE=db.sqlite node src/database/seed.js",
     "seedProd": "node src/database/seed.js",
     "seedTest": "DB_FILE=test.sqlite node src/database/seed.js",
-    "test" : "DB_FILE=test.sqlite node test/app.test.js"
+    "test": "DB_FILE=test.sqlite node test/app.test.js"
   },
   "repository": {
     "type": "git",
