@@ -1,2 +1,2 @@
 web: npm start
-release: npm run seed
+release: npm run seedProd
