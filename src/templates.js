@@ -30,12 +30,13 @@ function Posts({ data }) {
 
 function PostItem(entry) {
   return /*html*/ ` 
-  
+    <div class = "border">
       ${Object.values(entry)
         .map(
           (val) => `<div>${typeof val === "string" ? sanitize(val) : val}</div>`
         )
-        .join("")}`;
+        .join("")}
+    </div>`;
 }
 function Locations(title, locations) {
   // grab the column name
