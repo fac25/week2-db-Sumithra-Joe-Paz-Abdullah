@@ -52,7 +52,7 @@ function getRecentPosts() {
 // QUERY TO LIST THE 10 POSTS FOR SELECTED LOCATION
 
 const posts_location = db.prepare(/*sql*/ ` 
-   SELECT message, author, rating 
+   SELECT author, message, rating 
    FROM posts WHERE location_id = ? LIMIT 10
 `);
 

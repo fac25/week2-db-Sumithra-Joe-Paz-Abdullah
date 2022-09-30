@@ -12,6 +12,7 @@ html {
   margin-top: 10px;
   color: #4d4d4d;
   background-color: #ededed;
+  word-break: break-all;
 }
 
 .container {
@@ -138,6 +139,19 @@ a span {
   margin-bottom: 1rem;
 }
 
-.table_display > * {
+.table_display{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+
+.border{
+  max-width: 30ch;
   margin-bottom: 1rem;
+  height: fit-content;
+  padding: 1rem;
+  border: 1px solid black;
 }
