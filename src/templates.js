@@ -104,6 +104,10 @@ function DisplayRecentPosts(posts) {
 `;
 }
 
+function errorPage() {
+  return '<a href="/">home</a>';
+}
+
 function AddReviewForm(postsByLocation, locationId) {
   return /*html*/ `
     <form method="POST">
@@ -134,4 +138,5 @@ module.exports = {
   DisplayRecentPosts,
   AddReviewForm,
   Posts,
+  errorPage,
 };
