@@ -60,7 +60,7 @@ function Locations(title, locations) {
 }
 
 function sanitize(text) {
-  return text.replaceAll("<", "&lt;");
+  return text.replace(/</g, "&lt;");
 }
 
 function LocationItem(entry) {
