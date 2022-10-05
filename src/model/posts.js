@@ -19,8 +19,8 @@ function insertPost(post) {
   return insert_post.run(post);
 }
 
-// #6 Update the avg_rating in locations
-
+// # 6 Update the avg_rating in locations
+// ## v.1 All ratings, calculate via JS
 const get_ratings = db.prepare(/*sql*/ `
     SELECT rating
     FROM posts
@@ -30,9 +30,24 @@ const get_ratings = db.prepare(/*sql*/ `
 function getRatings(locationId) {
   return get_ratings.all(locationId);
 }
-
-// QUERY TO LIST 10 OF THE MOST RECENT MESSAGES
-
+// ## v.2, calculate AVG _ RATING in query
+const get_avg_ratings = db.prepare(/*sql*/ `
+    SELECT 
+    locations.id, avg(posts.rating) AS avg_rating
+    FROM 
+    posts, locations
+    WHERE 
+    posts.location_id = locations.id
+    GROUP BY 
+    posts.location_id
+`);
+function getAvgRatings() {
+  return get_avg_ratings.all();
+}
+console.log("----------------------");
+console.log(getAvgRatings());
+console.log("----------------------");
+// # QUERY TO LIST 10 OF THE MOST RECENT MESSAGES
 const most_recent = db.prepare(/*sql*/ ` 
 SELECT 
 posts.message,  
